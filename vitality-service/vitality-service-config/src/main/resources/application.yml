@@ -1,0 +1,23 @@
+# 服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8020/eureka
+spring:
+  application:
+    # 注册中心应用名称
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          #git环境地址
+          uri: https://github.com/tianqizhemere/fmaily-config-repo.git
+          #搜索目录
+          search-paths:
+            - config
+      # 读取分支
+      label: master
+# 端口号
+server:
+  port: 8030

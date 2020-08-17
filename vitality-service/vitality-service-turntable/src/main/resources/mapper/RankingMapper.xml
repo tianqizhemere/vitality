@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.tianqi.vitality.turntable.dao.RankingMapper">
+    <resultMap id="byToDay" type="top.tianqi.vitality.turntable.entity.Ranking">
+        <result property="titleId" column="titleId"/>
+        <result property="option" column="option"/>
+    </resultMap>
+    
+    <select id="findByToDay" resultMap="byToDay">
+        select count(*), t.title 'option',t.id 'titleId' from ranking r
+        left join awards a on r.awards_id = a.id
+        left join turntable_awards ta on ta.awards_id = a.id
+        left join turntable t on t.id = ta.turntable_id
+        where 1=1
+        <if test="beginTime != null">
+            and r.create_time &gt;= #{beginTime}
+        </if>
+        <if test="endTime != null">
+            and r.create_time &lt; #{endTime}
+        </if>
+        group by t.title, t.id
+        order by count(*) desc
+    </select>
+
+    <select id="findByDay" resultType="map" >
+        select count(*) count, a.name 'awardsName' from ranking r
+        left join awards a on r.awards_id = a.id
+        left join turntable_awards ta on ta.awards_id = a.id
+        where 1 = 1
+        <if test="titleId != null">
+            and ta.turntable_id = #{titleId}
+        </if>
+        <if test="beginTime != null">
+            and r.create_time &gt;= #{beginTime}
+        </if>
+        <if test="endTime != null">
+            and r.create_time &lt; #{endTime}
+        </if>
+        group by a.name
+        order by count(*) desc
+    </select>
+
+</mapper>

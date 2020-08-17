@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.tianqi.vitality.turntable.dao.TurntableMapper">
+
+    <resultMap type="top.tianqi.vitality.turntable.entity.Turntable" id="awardsModel">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <collection property="awards" select="getAwards" column="id">
+
+        </collection>
+    </resultMap>
+
+    <select id="findTreeList" resultMap="awardsModel">
+        select id,title as 'option' from turntable
+    </select>
+
+    <select id="getAwards" resultType="top.tianqi.vitality.turntable.entity.Awards">
+        select color,a.id,name FROM  awards a
+        left join turntable_awards ta on ta.awards_id = a.id
+        where ta.turntable_id=#{id}
+    </select>
+</mapper>

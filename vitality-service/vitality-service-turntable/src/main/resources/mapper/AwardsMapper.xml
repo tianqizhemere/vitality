@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.tianqi.vitality.turntable.dao.AwardsMapper">
+
+    <select id="findByTurntableId" parameterType="long" resultType="list">
+        <if test="turntableId != null">
+            SELECT a.* FROM turntable t
+            left join turntable_awards ta on ta.turntable_id = t.id
+            lef3t join awards a on ta.awards_id = a.id
+            where t.id = #{turntable}
+        </if>
+    </select>
+</mapper>

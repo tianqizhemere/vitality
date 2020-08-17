@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: delay-queue
+  profiles:
+    include: database
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT-8
+server:
+  port: 18089
+
+jasypt:
+  encryptor:
+    password: TianQi

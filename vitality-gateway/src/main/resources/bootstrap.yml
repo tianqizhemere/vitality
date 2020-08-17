@@ -1,0 +1,60 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: family-gateway
+  jackson:
+    serialization:
+      # 格式化输出
+      indent-output: true
+  cloud:
+    nacos:
+      discovery:
+        group: ${nacos.config.group}
+        # 默认应用名
+        service: ${spring.application.name}
+        server-addr: ${nacos.config.server-addr} #naocs配置中心地址
+        namespace: ${nacos.config.namespace}
+      config:
+        encode: UTF-8
+        file-extension: yaml
+        group: ${nacos.config.group}
+        server-addr: ${nacos.config.server-addr} #naocs配置中心地址
+        namespace: ${nacos.config.namespace}
+    # 让网关从nacos中获取服务信息
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+# 查看routes信息 http://localhost:8080/actuator/gateway/routes
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 自定义配置项
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848 #nacos的serverAdd配置
+    group: FAMILY-GATEWAY #分组的配置
+    data-id: family-gateway.json #data-id的配置
+    namespace: ca2f8213-72f5-4a4e-8c89-69403f870cf3
+
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.http.server.reactive: debug
+    org.springframework.web.reactive: debug
+    com.alibaba.nacos.client.naming: warn
+    reactor.ipc.netty: debug
+
+# 配置熔断器
+hystrix:
+  command:
+    hystrix1:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000

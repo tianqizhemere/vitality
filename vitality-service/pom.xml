@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>vitality</artifactId>
+        <groupId>top.tianqi</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <description>
+        server工程用于存放controller的,是实际对外的resful微服务接口
+    </description>
+
+    <artifactId>vitality-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>vitality-service-turntable</module>
+        <module>vitality-service-upload</module>
+        <module>vitality-service-quartz</module>
+        <module>vitality-service-queue</module>
+        <module>vitality-service-config</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>top.tianqi</groupId>
+            <artifactId>vitality-common-db</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- 打包可执行jar-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,14 @@
+server:
+  port: 9401
+spring:
+  profiles:
+    active: dev
+  application:
+    name: family-oauth2-auth
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
