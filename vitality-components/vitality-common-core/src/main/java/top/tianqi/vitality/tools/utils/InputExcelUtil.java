@@ -1,6 +1,6 @@
 package top.tianqi.vitality.tools.utils;
 
-import top.tianqi.vitality.tools.exception.InputExcelException;
+import top.tianqi.vitality.exception.InputExcelException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.slf4j.Logger;

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import top.tianqi.vitality.tools.utils.Result;
+import top.tianqi.vitality.entity.Result;
 import top.tianqi.vitality.tools.utils.ResultStatusCode;
 import top.tianqi.vitality.tools.utils.StatusCode;
 import top.tianqi.vitality.upload.service.UploadService;

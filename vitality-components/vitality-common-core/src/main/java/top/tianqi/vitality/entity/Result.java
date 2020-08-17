@@ -1,9 +1,12 @@
-package top.tianqi.vitality.tools.utils;
+package top.tianqi.vitality.entity;
+
+import top.tianqi.vitality.tools.utils.StatusCode;
 
 import java.io.Serializable;
 
 /**
  * 响应结果实体类
+ *
  * @Author Wukh
  * @Date 2020/2/22
  */

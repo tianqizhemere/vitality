@@ -1,4 +1,4 @@
-package top.tianqi.vitality.tools.exception;
+package top.tianqi.vitality.exception;
 
 /**
  * 延时队列异常

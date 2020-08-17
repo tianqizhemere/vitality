@@ -3,7 +3,7 @@ package top.tianqi.vitality.hystrix;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.tianqi.vitality.tools.utils.LogUtil;
-import top.tianqi.vitality.tools.utils.Result;
+import top.tianqi.vitality.entity.Result;
 import top.tianqi.vitality.tools.utils.ResultStatusCode;
 
 import java.util.Date;

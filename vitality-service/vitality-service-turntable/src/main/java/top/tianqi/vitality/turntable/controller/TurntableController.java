@@ -3,7 +3,7 @@ package top.tianqi.vitality.turntable.controller;
 import org.springframework.web.bind.annotation.*;
 import top.tianqi.vitality.turntable.bean.TurntableBean;
 import top.tianqi.vitality.turntable.entity.Turntable;
-import top.tianqi.vitality.tools.utils.Result;
+import top.tianqi.vitality.entity.Result;
 import top.tianqi.vitality.tools.utils.StatusCode;
 import top.tianqi.vitality.turntable.service.TurntableService;
 

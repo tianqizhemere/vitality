@@ -1,5 +1,5 @@
 server:
-  port: 9401
+  port: 8101
 spring:
   profiles:
     active: dev
@@ -7,8 +7,14 @@ spring:
     name: family-oauth2-auth
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 5000

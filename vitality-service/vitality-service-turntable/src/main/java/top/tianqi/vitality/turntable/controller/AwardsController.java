@@ -2,7 +2,7 @@ package top.tianqi.vitality.turntable.controller;
 
 import org.springframework.web.bind.annotation.*;
 import top.tianqi.vitality.turntable.entity.Awards;
-import top.tianqi.vitality.tools.utils.Result;
+import top.tianqi.vitality.entity.Result;
 import top.tianqi.vitality.tools.utils.StatusCode;
 import top.tianqi.vitality.turntable.service.AwardsService;
 

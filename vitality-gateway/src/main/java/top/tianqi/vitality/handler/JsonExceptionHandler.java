@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.server.*;
 import org.springframework.web.server.ResponseStatusException;
-import top.tianqi.vitality.tools.exception.UnauthorizedException;
+import top.tianqi.vitality.exception.UnauthorizedException;
 
 import java.util.HashMap;
 import java.util.Map;

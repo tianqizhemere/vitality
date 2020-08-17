@@ -1,4 +1,4 @@
-package top.tianqi.vitality.tools.exception;
+package top.tianqi.vitality.exception;
 
 import java.io.Serializable;
 
