@@ -27,7 +27,8 @@ public class AuthUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AuthUser user = new AuthUser();
         user.setUsername(username);
-        user.setUsername(this.passwordEncoder.encode("123456"));
+        user.setPassword(this.passwordEncoder.encode("123456"));
+
         return new User(username, user.getPassword(), user.isEnabled(),
                 user.isAccountNonExpired(), user.isCredentialsNonExpired(),
                 user.isAccountNonLocked(), AuthorityUtils.commaSeparatedStringToAuthorityList("user:add"));

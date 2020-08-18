@@ -6,7 +6,7 @@ eureka:
 spring:
   application:
     # 注册中心应用名称
-    name: config-service
+    name: VITALITY-Server-Config
   cloud:
     config:
       server:

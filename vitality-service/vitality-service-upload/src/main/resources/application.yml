@@ -1,11 +1,22 @@
 spring:
   application:
-    name: family-upload
+    name: VITALITY-Server-Upload
   servlet:
     multipart:
       #设置单个文件大小
       max-file-size: @max.file.size@
       #设置总上传数据大小
       max-request-size: @max.request.size@
+
+
+feign:
+  hystrix:
+    enabled: true
 server:
   port: 18082
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      # 到认证服务器里校验当前请求头中的令牌是否为合法的令牌
+      user-info-uri: http://localhost:8080/api/auth/user

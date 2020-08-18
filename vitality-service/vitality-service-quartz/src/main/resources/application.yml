@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: VITALITY-Server-Quartz
+  artemis:
+    port: 8105

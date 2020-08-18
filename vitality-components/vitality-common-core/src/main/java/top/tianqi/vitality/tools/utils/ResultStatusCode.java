@@ -20,6 +20,7 @@ public enum ResultStatusCode {
     TokenInvalidOrOverdueException(9, "Token invalid or overdue exception"),
     AuthorizationCodeError(10, "authorization code error"),
     WrongSignatureException(11, "Wrong Signature Exception"),
+    RemoteCall(12, "远程调用失败"),
     SystemException(500, "系统错误"),
     BAD_REQUEST(400, "错误请求"),
     FILE_TOO_LARGE(500, "文件过大"),

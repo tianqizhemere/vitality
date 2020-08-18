@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: family-gateway
+    name: VITALITY-Gateway
   jackson:
     serialization:
       # 格式化输出

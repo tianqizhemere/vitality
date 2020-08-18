@@ -1,6 +1,6 @@
 spring:
   application:
-    name: delay-queue
+    name: VITALITY-Server-Queue
   profiles:
     include: database
   jackson:
