@@ -18,6 +18,28 @@ spring:
     timeout: 5000
   profiles:
     include: database
+  boot:
+    admin:
+      client:
+        url: http://localhost:8401
+        username: febs
+        password: 123456
+
+# 配置了SBA客户端的名称，描述和版本信息
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 jasypt:
   encryptor:

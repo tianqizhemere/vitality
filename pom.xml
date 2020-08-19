@@ -216,6 +216,12 @@
                 <artifactId>spring-boot-admin-server-ui</artifactId>
                 <version>${de.codecentric.admin}</version>
             </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${de.codecentric.admin}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
