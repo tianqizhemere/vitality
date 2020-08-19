@@ -15,6 +15,7 @@
         <module>vitality-service-turntable-api</module>
         <module>vitality-service-upload-api</module>
         <module>vitality-service-queue-api</module>
+        <module>vitality-service-system-api</module>
     </modules>
 
     <description>

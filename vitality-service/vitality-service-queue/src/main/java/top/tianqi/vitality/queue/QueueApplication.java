@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2020/8/6 17:05
  */
 @MapperScan(basePackages = "top.tianqi.vitality.queue.dao")
-@SpringBootApplication(scanBasePackages = {"top.tianqi.vitality.tools.queue", "top.tianqi.queue"})
+@SpringBootApplication(scanBasePackages = {"top.tianqi.vitality.tools.queue"})
 public class QueueApplication {
 
     public static void main(String[] args) {

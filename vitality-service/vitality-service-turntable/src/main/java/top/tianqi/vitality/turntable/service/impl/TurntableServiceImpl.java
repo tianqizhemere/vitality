@@ -8,10 +8,10 @@ import top.tianqi.vitality.turntable.entity.Awards;
 import top.tianqi.vitality.turntable.entity.Turntable;
 import top.tianqi.vitality.turntable.entity.TurntableAwards;
 import top.tianqi.vitality.tools.utils.BeanUtils;
-import top.tianqi.vitality.turntable.dao.AwardsMapper;
-import top.tianqi.vitality.turntable.dao.RankingMapper;
-import top.tianqi.vitality.turntable.dao.TurntableAwardsMapper;
-import top.tianqi.vitality.turntable.dao.TurntableMapper;
+import top.tianqi.vitality.turntable.mapper.AwardsMapper;
+import top.tianqi.vitality.turntable.mapper.RankingMapper;
+import top.tianqi.vitality.turntable.mapper.TurntableAwardsMapper;
+import top.tianqi.vitality.turntable.mapper.TurntableMapper;
 import top.tianqi.vitality.turntable.service.TurntableService;
 
 import javax.annotation.Resource;

@@ -21,6 +21,10 @@ public class AuthProperties {
     private int accessTokenValiditySeconds = 60 * 60 * 24;
     /** refresh_token,token刷新后有效时间*/
     private int refreshTokenValiditySeconds = 60 * 60 * 24 * 7;
+    /** 验证码配置类*/
+    private ValidateCodeProperties code = new ValidateCodeProperties();
+    /** 免认证路径*/
+    private String anonUrl;
 
     public ClientsProperties[] getClients() {
         return clients;
@@ -44,5 +48,21 @@ public class AuthProperties {
 
     public void setRefreshTokenValiditySeconds(int refreshTokenValiditySeconds) {
         this.refreshTokenValiditySeconds = refreshTokenValiditySeconds;
+    }
+
+    public ValidateCodeProperties getCode() {
+        return code;
+    }
+
+    public void setCode(ValidateCodeProperties code) {
+        this.code = code;
+    }
+
+    public String getAnonUrl() {
+        return anonUrl;
+    }
+
+    public void setAnonUrl(String anonUrl) {
+        this.anonUrl = anonUrl;
     }
 }

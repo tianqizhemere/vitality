@@ -1,4 +1,4 @@
-package top.tianqi.vitality.turntable.dao;
+package top.tianqi.vitality.turntable.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

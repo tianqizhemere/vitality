@@ -1,7 +1,7 @@
 package top.tianqi.vitality.turntable.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import top.tianqi.vitality.turntable.dao.AwardsMapper;
+import top.tianqi.vitality.turntable.mapper.AwardsMapper;
 import top.tianqi.vitality.turntable.service.AwardsService;
 import top.tianqi.vitality.turntable.entity.Awards;
 import org.springframework.beans.factory.annotation.Autowired;

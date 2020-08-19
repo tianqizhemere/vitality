@@ -32,18 +32,18 @@ public class AuthWebResponseExceptionTranslator implements WebResponseExceptionT
         if (e instanceof UnsupportedGrantTypeException) {
             message = "不支持的认证类型";
             result.setMessage(message);
-            status.body(result);
+            return status.body(result);
         }
         if (e instanceof InvalidGrantException) {
             if (StringUtils.equalsAnyIgnoreCase(e.getMessage(), "Invalid refresh token")) {
                 message = "refresh token无效";
                 result.setMessage(message);
-                status.body(result);
+                return status.body(result);
             }
-            if (StringUtils.equalsAnyIgnoreCase(e.getMessage(), "locked")) {
+            if (StringUtils.equalsAnyIgnoreCase(e.getMessage(), "User account is locked")) {
                 message = "账户已锁定，请联系管理员！";
                 result.setMessage(message);
-                status.body(result);
+                return status.body(result);
             }
             message = "用户名或密码错误";
             result.setMessage(message);

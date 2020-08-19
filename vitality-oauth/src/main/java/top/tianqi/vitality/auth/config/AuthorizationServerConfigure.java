@@ -19,7 +19,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 import top.tianqi.vitality.auth.properties.AuthProperties;
 import top.tianqi.vitality.auth.properties.ClientsProperties;
-import top.tianqi.vitality.auth.service.AuthUserDetailService;
+import top.tianqi.vitality.auth.service.impl.AuthUserDetailServiceImpl;
 import top.tianqi.vitality.auth.translator.AuthWebResponseExceptionTranslator;
 
 import javax.annotation.Resource;
@@ -43,7 +43,7 @@ public class AuthorizationServerConfigure extends AuthorizationServerConfigurerA
     @Autowired
     private AuthWebResponseExceptionTranslator authWebResponseExceptionTranslator;
     @Resource(name = "authUserDetailService")
-    private AuthUserDetailService userDetailService;
+    private AuthUserDetailServiceImpl userDetailService;
     @Resource(name = "authProperties")
     private AuthProperties authProperties;
 

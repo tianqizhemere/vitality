@@ -7,7 +7,7 @@ import top.tianqi.vitality.turntable.bean.RankingBean;
 import top.tianqi.vitality.turntable.entity.Ranking;
 import top.tianqi.vitality.tools.utils.BeanUtils;
 import top.tianqi.vitality.tools.utils.DateUtils;
-import top.tianqi.vitality.turntable.dao.RankingMapper;
+import top.tianqi.vitality.turntable.mapper.RankingMapper;
 import top.tianqi.vitality.turntable.service.RankingService;
 
 import javax.annotation.Resource;

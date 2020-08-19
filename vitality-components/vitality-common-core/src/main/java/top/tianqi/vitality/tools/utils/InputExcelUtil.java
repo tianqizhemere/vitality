@@ -161,7 +161,6 @@ public class InputExcelUtil {
 	 * 功能:获取单元格的值
 	 */
 	private static String getCellValue(Cell cell) {
-		cell.getCellType();
 		Object result = "";
 		switch (cell.getCellTypeEnum()) {
 			case STRING:
@@ -194,7 +193,7 @@ public class InputExcelUtil {
 		String method_name = convertToMethodName(attribute,obj.getClass(),true);
 		Method[] methods = obj.getClass().getMethods();
 		for (Method method : methods) {
-			/**
+			/*
 			 * 因为这里只是调用bean中属性的set方法，属性名称不能重复
 			 * 所以set方法也不会重复，所以就直接用方法名称去锁定一个方法
 			 * （注：在java中，锁定一个方法的条件是方法名及参数）
@@ -297,15 +296,15 @@ public class InputExcelUtil {
 	 * 功能:根据属性生成对应的set/get方法
 	 */
 	private static String convertToMethodName(String attribute,Class<?> objClass,boolean isSet) {
-		/** 通过正则表达式来匹配第一个字符 **/
+		/* 通过正则表达式来匹配第一个字符 **/
 		Pattern p = Pattern.compile(REGEX);
 		Matcher m = p.matcher(attribute);
 		StringBuilder sb = new StringBuilder();
-		/** 如果是set方法名称 **/
+		/* 如果是set方法名称 **/
 		if(isSet) {
 			sb.append("set");
 		} else {
-			/** get方法名称 **/
+			/* get方法名称 **/
 			try {
 				Field attributeField = objClass.getDeclaredField(attribute);
 				/** 如果类型为boolean **/
@@ -314,13 +313,11 @@ public class InputExcelUtil {
 				} else {
 					sb.append("get");
 				}
-			} catch (SecurityException e) {
-				e.printStackTrace();
-			} catch (NoSuchFieldException e) {
+			} catch (SecurityException | NoSuchFieldException e) {
 				e.printStackTrace();
 			}
 		}
-		/** 针对以下划线开头的属性 **/
+		/* 针对以下划线开头的属性 */
 		if(attribute.charAt(0)!='_' && m.find()) {
 			sb.append(m.replaceFirst(m.group().toUpperCase()));
 		} else {

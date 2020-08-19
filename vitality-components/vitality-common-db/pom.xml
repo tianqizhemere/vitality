@@ -15,20 +15,10 @@
     </description>
 
     <dependencies>
-        <dependency>
-            <groupId>top.tianqi</groupId>
-            <artifactId>vitality-common-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!-- mybatisPlus 核心库 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <!-- 引入阿里数据库连接池 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
         </dependency>
         <!--MySQL数据库驱动-->
         <dependency>
@@ -41,6 +31,18 @@
         <dependency>
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!--MyBatis Plus多数据源-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!--打印mybatis执行的SQL语句-->
+        <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
         </dependency>
     </dependencies>
 

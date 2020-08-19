@@ -1,4 +1,4 @@
-package top.tianqi.vitality.queue.dao;
+package top.tianqi.vitality.queue.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import top.tianqi.vitality.queue.entity.DelayTask;

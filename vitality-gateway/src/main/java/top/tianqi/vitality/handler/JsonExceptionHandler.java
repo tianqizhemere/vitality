@@ -1,5 +1,7 @@
 package top.tianqi.vitality.handler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.web.ErrorProperties;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.DefaultErrorWebExceptionHandler;
@@ -10,9 +12,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.server.*;
 import org.springframework.web.server.ResponseStatusException;
 import top.tianqi.vitality.exception.UnauthorizedException;
+import top.tianqi.vitality.tools.utils.JsonUtil;
+import top.tianqi.vitality.tools.utils.ResultStatusCode;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.zip.DataFormatException;
 
 /**
  * 统一异常处理
@@ -24,6 +29,8 @@ import java.util.Map;
  * @Date 2020/8/12 16:56
  */
 public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
+
+    private static Logger logger = LoggerFactory.getLogger(JsonExceptionHandler.class);
 
     /** 状态码Key */
     private static final String STATUS_CODE_KEY = "code";
@@ -38,26 +45,35 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
 
     @Override
     protected Map<String, Object> getErrorAttributes(ServerRequest request, boolean includeStackTrace) {
-        int code = HttpStatus.UNAUTHORIZED.value();
         // 这里其实可以根据异常类型进行定制化逻辑
         Throwable error = super.getError(request);
         String body;
+        int code = HttpStatus.INTERNAL_SERVER_ERROR.value();
+        body = "Internal Server Error";
         if (error instanceof NotFoundException) {
             code = HttpStatus.NOT_FOUND.value();
             body = "Service Not Found";
-        } else if (error instanceof ResponseStatusException || error instanceof UnauthorizedException) {
+        }
+        if (error instanceof ResponseStatusException || error instanceof UnauthorizedException) {
             ResponseStatusException responseStatusException = (ResponseStatusException) error;
             code = responseStatusException.getStatus().value();
             body = responseStatusException.getMessage();
-        } else {
-            code = HttpStatus.INTERNAL_SERVER_ERROR.value();
-            body = "Internal Server Error";
         }
+        if (error instanceof DataFormatException) {
+            code = ResultStatusCode.DataFormatException.getCode();
+            body = ResultStatusCode.DataFormatException.getMsg();
+        }
+        if (error instanceof TypeNotPresentException) {
+            code = ResultStatusCode.DataFormatException.getCode();
+            body = ResultStatusCode.DataFormatException.getMsg();
+        }
+        logger.error("请求异常:", getError(request));
         Map<String, Object> errorAttributes = new HashMap<>(8);
         errorAttributes.put("message", body);
         errorAttributes.put(STATUS_CODE_KEY, code);
         errorAttributes.put("method", request.methodName());
         errorAttributes.put("path", request.path());
+        logger.error(JsonUtil.toJsonString(errorAttributes));
         return errorAttributes;
     }
 

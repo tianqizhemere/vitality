@@ -9,7 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import top.tianqi.vitality.auth.service.AuthUserDetailService;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import top.tianqi.vitality.auth.filter.ValidateCodeFilter;
+import top.tianqi.vitality.auth.service.impl.AuthUserDetailServiceImpl;
 
 import javax.annotation.Resource;
 
@@ -25,7 +27,10 @@ import javax.annotation.Resource;
 public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 
     @Resource(name = "authUserDetailService")
-    private AuthUserDetailService userDetailService;
+    private AuthUserDetailServiceImpl userDetailService;
+
+    @Resource(name = "validateCodeFilter")
+    private ValidateCodeFilter validateCodeFilter;
 
     /**
      * 用于密码加密校验
@@ -45,7 +50,8 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.requestMatchers()
+        http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+                .requestMatchers()
                 // 安全配置类只对/oauth/开头的请求有效。
                     .antMatchers("/oauth/**")
                 .and()

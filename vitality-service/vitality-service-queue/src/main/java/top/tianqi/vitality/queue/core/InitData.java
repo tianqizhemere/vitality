@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import top.tianqi.vitality.tools.queue.DelayQueueManager;
 import top.tianqi.vitality.tools.utils.DateUtils;
 import top.tianqi.vitality.tools.utils.JsonUtil;
-import top.tianqi.vitality.queue.dao.DelayTaskMapper;
+import top.tianqi.vitality.queue.mapper.DelayTaskMapper;
 import top.tianqi.vitality.queue.entity.DelayTask;
 import top.tianqi.vitality.queue.enumeration.TaskClassEnum;
 import top.tianqi.vitality.queue.task.OrderTask;

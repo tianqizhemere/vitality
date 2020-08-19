@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    dynamic:
+      hikari:
+        connection-timeout: 30000
+        max-lifetime: 1800000
+        max-pool-size: 15
+        min-idle: 5
+        connection-test-query: select 1
+        pool-name: FebsHikariCP
+      primary: base
+      datasource:
+        base:
+          username: ENC(Gri54jrP8xEGxDnSCI90Ng==)
+          password: ENC(a1ZwjorWwGZqg+35Hpgqb2l3e6XiO3hg)
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://124.71.97.40:3306/vitality?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+
+mybatis-plus:
+  # 指定别名扫描路径
+  type-aliases-package: top.tianqi.vitality.system.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    jdbc-type-for-null: null
+  global-config:
+    banner: false

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="top.tianqi.vitality.turntable.dao.RankingMapper">
+<mapper namespace="top.tianqi.vitality.turntable.mapper.RankingMapper">
     <resultMap id="byToDay" type="top.tianqi.vitality.turntable.entity.Ranking">
         <result property="titleId" column="titleId"/>
         <result property="option" column="option"/>

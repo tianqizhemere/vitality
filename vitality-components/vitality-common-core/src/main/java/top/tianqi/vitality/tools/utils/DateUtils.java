@@ -309,7 +309,7 @@ public class DateUtils {
      * @return
      */
     public static String dateFormat(Date date, String format) {
-        if (date != null) {
+        if (date != null && format != null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
             return simpleDateFormat.format(date);
         }

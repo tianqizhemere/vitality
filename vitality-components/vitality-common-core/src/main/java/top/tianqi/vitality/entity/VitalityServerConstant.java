@@ -11,6 +11,8 @@ public class VitalityServerConstant {
     public static final String VITALITY_GATEWAY = "VITALITY-Gateway";
     public static final String VITALITY_AUTH = "VITALITY-Auth";
     public static final String VITALITY_SERVER = "VITALITY-Server";
+    public static final String VITALITY_MONITOR = "VITALITY-Monitor";
+    public static final String VITALITY_MONITOR_ADMIN = "VITALITY-Monitor-Admin";
     public static final String VITALITY_SERVER_TURNTABLE = "VITALITY-Server-Turntable";
     public static final String VITALITY_SERVER_UPLOAD = "VITALITY-Server-Upload";
     public static final String VITALITY_SERVER_QUEUE = "VITALITY-Server-Queue";

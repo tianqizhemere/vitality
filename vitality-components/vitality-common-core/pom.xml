@@ -11,7 +11,7 @@
 
     <artifactId>vitality-common-core</artifactId>
     <description>
-        提供微服务相关依赖包、工具类、全局异常解析
+        提供微服务相关公共依赖包、工具类、公用模块
     </description>
 
     <dependencies>
