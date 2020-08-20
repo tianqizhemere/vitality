@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: VITALITY-Auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        group: DEFAULT_GROUP
+        prefix: vitality-auth
+        file-extension: yaml
+
+logging:
+  level:
+    com:
+      alibaba:
+        cloud:
+          nacos:
+            client:
+              NacosPropertySourceBuilder: error

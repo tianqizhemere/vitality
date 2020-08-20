@@ -19,8 +19,8 @@ import javax.servlet.MultipartConfigElement;
  */
 @EnableFeignClients
 @EnableConfigurationProperties(RemoteUploadConfig.class)
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class UploadApplication {
     public static void main(String[] args) {
         SpringApplication.run(UploadApplication.class, args);

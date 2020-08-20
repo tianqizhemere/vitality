@@ -24,7 +24,7 @@ import java.security.Principal;
  * @Author wkh
  * @Date 2020/8/17 15:48
  */
-@RestController
+@RestController(value = "authController")
 @RequestMapping(value = "/auth")
 public class SecurityController {
 
@@ -67,6 +67,7 @@ public class SecurityController {
 
     /**
      * 生成验证码
+     *
      * @param request HttpServletRequest
      * @param response HttpServletResponse
      * @return

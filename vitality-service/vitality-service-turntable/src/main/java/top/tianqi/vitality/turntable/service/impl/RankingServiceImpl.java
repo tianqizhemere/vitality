@@ -1,16 +1,16 @@
 package top.tianqi.vitality.turntable.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import top.tianqi.vitality.turntable.bean.RankingBean;
-import top.tianqi.vitality.turntable.entity.Ranking;
 import top.tianqi.vitality.tools.utils.BeanUtils;
 import top.tianqi.vitality.tools.utils.DateUtils;
+import top.tianqi.vitality.turntable.bean.RankingBean;
+import top.tianqi.vitality.turntable.entity.Ranking;
 import top.tianqi.vitality.turntable.mapper.RankingMapper;
 import top.tianqi.vitality.turntable.service.RankingService;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +24,7 @@ import java.util.Map;
 @Transactional(rollbackFor = Exception.class)
 public class RankingServiceImpl extends ServiceImpl<RankingMapper, Ranking> implements RankingService {
 
-    @Resource
+    @Autowired
     private RankingMapper rankingMapper;
 
     @Override

@@ -70,12 +70,6 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- nacos服务注册 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
         <!--spring cloud nacos config -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -87,10 +81,10 @@
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
-        <!--Sentinel验证码限流-->
+        <!--资源限流-->
         <dependency>
             <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-zuul-adapter</artifactId>
+            <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
         </dependency>
     </dependencies>
 
@@ -103,5 +97,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

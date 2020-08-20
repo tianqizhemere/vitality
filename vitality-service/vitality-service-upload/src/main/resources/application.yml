@@ -7,7 +7,8 @@ spring:
       max-file-size: @max.file.size@
       #设置总上传数据大小
       max-request-size: @max.request.size@
-
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 feign:
   hystrix:

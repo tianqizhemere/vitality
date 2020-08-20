@@ -15,4 +15,5 @@ import org.springframework.context.annotation.Configuration;
 public class GatewaySentinelFilter {
 
     private static Logger logger = LoggerFactory.getLogger(GatewaySentinelFilter.class);
+
 }

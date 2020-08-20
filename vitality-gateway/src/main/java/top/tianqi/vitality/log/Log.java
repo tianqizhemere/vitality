@@ -42,6 +42,7 @@ public class Log {
     /** http请求状态码*/
     private Integer status;
     private String serverIp;
+    /** session容器Id*/
     private String sessionId;
     private String _class;
 

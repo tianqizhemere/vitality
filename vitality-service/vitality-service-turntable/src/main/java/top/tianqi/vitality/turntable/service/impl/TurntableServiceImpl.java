@@ -1,20 +1,20 @@
 package top.tianqi.vitality.turntable.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import top.tianqi.vitality.tools.utils.BeanUtils;
 import top.tianqi.vitality.turntable.bean.TurntableBean;
 import top.tianqi.vitality.turntable.entity.Awards;
 import top.tianqi.vitality.turntable.entity.Turntable;
 import top.tianqi.vitality.turntable.entity.TurntableAwards;
-import top.tianqi.vitality.tools.utils.BeanUtils;
 import top.tianqi.vitality.turntable.mapper.AwardsMapper;
 import top.tianqi.vitality.turntable.mapper.RankingMapper;
 import top.tianqi.vitality.turntable.mapper.TurntableAwardsMapper;
 import top.tianqi.vitality.turntable.mapper.TurntableMapper;
 import top.tianqi.vitality.turntable.service.TurntableService;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -28,16 +28,16 @@ import java.util.Map;
 @Transactional(rollbackFor = Exception.class)
 public class TurntableServiceImpl extends ServiceImpl<TurntableMapper, Turntable> implements TurntableService {
 
-    @Resource
+    @Autowired
     private TurntableMapper turntableMapper;
 
-    @Resource
+    @Autowired
     private AwardsMapper awardsMapper;
 
-    @Resource
+    @Autowired
     private TurntableAwardsMapper turntableAwardsMapper;
 
-    @Resource
+    @Autowired
     private RankingMapper rankingMapper;
 
 

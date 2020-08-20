@@ -1,6 +1,0 @@
-spring:
-  datasource:
-    driver-class-name:  com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://124.71.97.40:3306/domestic?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-    username: ENC(Gri54jrP8xEGxDnSCI90Ng==)
-    password: ENC(a1ZwjorWwGZqg+35Hpgqb2l3e6XiO3hg)

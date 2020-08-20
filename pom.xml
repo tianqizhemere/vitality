@@ -67,6 +67,8 @@
                 <!--单个文件上传数据大小-->
                 <max.file.size>5MB</max.file.size>
                 <spring.cloud.nacos.serverAddr>127.0.0.1:8848</spring.cloud.nacos.serverAddr>
+                <spring.cloud.nacos.namespace>35cffc4a-9c66-4588-ac81-5b1a1f083168</spring.cloud.nacos.namespace>
+                <spring.cloud.nacos.group>VITALITY</spring.cloud.nacos.group>
             </properties>
         </profile>
         <!--测试环境-->
@@ -211,16 +213,24 @@
                 <artifactId>spring-boot-admin-server</artifactId>
                 <version>${de.codecentric.admin}</version>
             </dependency>
+            <!--图形化监控-->
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-server-ui</artifactId>
                 <version>${de.codecentric.admin}</version>
             </dependency>
-
+            <!--admin监控客户端-->
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${de.codecentric.admin}</version>
+            </dependency>
+
+            <!--资源限流-->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
+                <version>1.6.3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

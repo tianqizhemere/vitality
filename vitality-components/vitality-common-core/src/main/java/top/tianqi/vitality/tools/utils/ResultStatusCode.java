@@ -24,6 +24,7 @@ public enum ResultStatusCode {
     SystemException(500, "系统错误"),
     BAD_REQUEST(400, "错误请求"),
     FILE_TOO_LARGE(500, "文件过大"),
+    DENY_EXTERNAL_ACCESS(403, "该URI不允许外部访问"),
     MissingServletRequestParameter(400, "请求参数不全"),
     TypeMismatchException(401, "请求参数类型不正确"),
     RequestMethodNotAllowed(405, "http请求的方法不正确"),

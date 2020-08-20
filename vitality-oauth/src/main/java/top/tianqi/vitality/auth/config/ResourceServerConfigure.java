@@ -29,6 +29,7 @@ public class ResourceServerConfigure extends ResourceServerConfigurerAdapter {
                 .requestMatchers().antMatchers("/**")
                 .and()
                 .authorizeRequests()
+                // 放行资源
                 .antMatchers(authProperties.getAnonUrl()).permitAll()
                 .antMatchers("/**").authenticated();
     }

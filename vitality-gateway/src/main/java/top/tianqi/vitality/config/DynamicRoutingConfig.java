@@ -52,7 +52,7 @@ public class DynamicRoutingConfig implements ApplicationEventPublisherAware {
     public void refreshRouting() throws NacosException {
         Properties properties = new Properties();
         properties.put(PropertyKeyConst.SERVER_ADDR, GatewayConfig.NACOS_SERVER_ADDR);
-        properties.put(PropertyKeyConst.NAMESPACE, GatewayConfig.NACOS_NAMESPACE);
+        // properties.put(PropertyKeyConst.NAMESPACE, GatewayConfig.NACOS_NAMESPACE);
         ConfigService configService = NacosFactory.createConfigService(properties);
         // 监听并刷新路由信息
         configService.addListener(GatewayConfig.NACOS_DATA_ID, GatewayConfig.NACOS_GROUP_ID, new Listener() {
