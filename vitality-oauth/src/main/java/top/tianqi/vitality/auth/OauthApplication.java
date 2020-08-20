@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import top.tianqi.vitality.annotation.EnableLettuceRedis;
+import top.tianqi.vitality.annotation.EnableServerProtect;
 
 /**
  * 授权服务

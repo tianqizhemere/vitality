@@ -1,5 +1,6 @@
 package top.tianqi.vitality.auth.config;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -25,12 +26,13 @@ public class ResourceServerConfigure extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        String[] anonUrlS = StringUtils.splitByWholeSeparatorPreserveAllTokens(authProperties.getAnonUrl(), ",");
         http.csrf().disable()
                 .requestMatchers().antMatchers("/**")
                 .and()
                 .authorizeRequests()
                 // 放行资源
-                .antMatchers(authProperties.getAnonUrl()).permitAll()
+                .antMatchers(anonUrlS).permitAll()
                 .antMatchers("/**").authenticated();
     }
 }
