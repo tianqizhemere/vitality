@@ -1,6 +1,5 @@
 package top.tianqi.vitality.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,6 +12,8 @@ import top.tianqi.vitality.interceptor.ServerProtectInterceptor;
 import javax.annotation.Resource;
 
 /**
+ * 通过配置类将ServerProtectInterceptor过滤器加载到IOC容器中
+ *
  * @author tianQi
  * @create 2020-08-20
  */
@@ -31,7 +32,8 @@ public class ServerProtectConfigure implements WebMvcConfigurer {
         registry.addInterceptor(interceptor);
     }
 
-    @Bean
+    /** 密码加密校验 */
+    @Bean(name = "passwordEncoder")
     @ConditionalOnMissingBean(value = PasswordEncoder.class)
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

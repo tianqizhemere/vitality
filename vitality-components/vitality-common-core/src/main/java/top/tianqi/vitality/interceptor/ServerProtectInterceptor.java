@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 校验gateway token
+ *
  * @author tianQi
  * @create 2020-08-20
  */
@@ -20,6 +22,7 @@ public class ServerProtectInterceptor implements HandlerInterceptor {
 
     /**
      * 实现了HandlerInterceptor的preHandle方法，该拦截器可以拦截所有Web请求
+     *
      * @param request
      * @param response
      * @param handler
@@ -38,6 +41,8 @@ public class ServerProtectInterceptor implements HandlerInterceptor {
             Result<String> result = new Result<>(HttpServletResponse.SC_FORBIDDEN, "请通过网关获取资源");
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.setCharacterEncoding("utf-8");
+            response.setHeader("Content-Type", "text/html;charset=utf-8");
             response.getWriter().write(JsonUtil.toJsonString(result));
             return false;
         }

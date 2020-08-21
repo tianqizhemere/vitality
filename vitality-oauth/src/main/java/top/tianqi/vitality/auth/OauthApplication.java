@@ -4,8 +4,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import top.tianqi.vitality.annotation.EnableCloudApplication;
 import top.tianqi.vitality.annotation.EnableLettuceRedis;
-import top.tianqi.vitality.annotation.EnableServerProtect;
 
 /**
  * 授权服务
@@ -16,6 +16,7 @@ import top.tianqi.vitality.annotation.EnableServerProtect;
 @MapperScan(value = "top.tianqi.vitality.auth.mapper")
 @EnableLettuceRedis
 @EnableDiscoveryClient
+@EnableCloudApplication
 @SpringBootApplication
 public class OauthApplication {
     public static void main(String[] args) {

@@ -6,13 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import top.tianqi.vitality.annotation.EnableServerProtect;
+import top.tianqi.vitality.annotation.EnableCloudApplication;
 
 @EnableEncryptableProperties
 @MapperScan(basePackages = {"top.tianqi.vitality.turntable.mapper"})
 @EnableDiscoveryClient
 @EnableFeignClients
-@EnableServerProtect
+@EnableCloudApplication
 @SpringBootApplication
 public class TurntableApplication {
 

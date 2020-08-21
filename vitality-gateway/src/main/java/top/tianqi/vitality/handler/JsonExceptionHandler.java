@@ -1,5 +1,6 @@
 package top.tianqi.vitality.handler;
 
+import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.DefaultErrorWebExceptionHandler;
 import org.springframework.boot.web.reactive.error.ErrorAttributes;
 import org.springframework.cloud.gateway.support.NotFoundException;
+import org.springframework.cloud.gateway.support.TimeoutException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.server.*;
@@ -50,7 +52,7 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
                 request.path(), request.methodName(), error.getMessage()
         );
         int code = HttpStatus.INTERNAL_SERVER_ERROR.value();
-        String body = "Internal Server Error";
+        String body = "网关转发异常";
         if (error instanceof NotFoundException) {
             code = HttpStatus.NOT_FOUND.value();
             String serverId = StringUtils.substringAfterLast(error.getMessage(), "Unable to find instance for ");
@@ -58,7 +60,7 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
             body = String.format("无法找到%s服务", serverId);
         } else if (StringUtils.containsIgnoreCase(error.getMessage(), "connection refused")) {
             body = "目标服务拒绝连接";
-        } else if (error instanceof ResponseStatusException) {
+        } else if (error instanceof ResponseStatusException  && StringUtils.containsIgnoreCase(error.getMessage(), HttpStatus.NOT_FOUND.toString())) {
             ResponseStatusException responseStatusException = (ResponseStatusException) error;
             code = responseStatusException.getStatus().value();
             body = "未找到该资源";
@@ -68,6 +70,10 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
         } else if (error instanceof TypeNotPresentException) {
             code = ResultStatusCode.TypeMismatchException.getCode();
             body = ResultStatusCode.TypeMismatchException.getMsg();
+        } else if (error instanceof TimeoutException) {
+            body = "访问服务超时";
+        } else if (error instanceof ParamFlowException) {
+            body = "访问频率超限";
         }
 
         Map<String, Object> errorAttributes = new HashMap<>(8);

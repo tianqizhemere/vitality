@@ -58,12 +58,6 @@
             </exclusions>
         </dependency>
 
-        <!-- 熔断器 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
-
         <!-- (健康监控)配置和使用 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

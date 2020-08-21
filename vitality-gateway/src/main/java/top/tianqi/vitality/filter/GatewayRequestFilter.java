@@ -9,7 +9,6 @@ import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.route.Route;
 import org.springframework.cloud.gateway.support.ServerWebExchangeUtils;
-import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
-import top.tianqi.vitality.constant.OrderedConstant;
 import top.tianqi.vitality.entity.Result;
 import top.tianqi.vitality.entity.VitalityConstant;
 import top.tianqi.vitality.properties.VitalityGatewayProperties;
@@ -40,7 +38,7 @@ import java.util.function.Consumer;
  * @Date 2020/8/20 11:17
  */
 @Component
-public class GatewayRequestFilter implements GlobalFilter, Ordered {
+public class GatewayRequestFilter implements GlobalFilter {
 
     private static Logger logger = LoggerFactory.getLogger(GatewayRequestFilter.class);
 
@@ -83,6 +81,7 @@ public class GatewayRequestFilter implements GlobalFilter, Ordered {
      * @return
      */
     private Mono<Void> checkForbidUri(ServerHttpRequest request, ServerHttpResponse response) {
+        // 获取当前访问路径
         String uri = request.getPath().toString();
         boolean shouldForward = true;
         String forbidRequestUri = properties.getForbidRequestUri();
@@ -103,6 +102,7 @@ public class GatewayRequestFilter implements GlobalFilter, Ordered {
 
     /**
      * 创建响应体
+     *
      * @param response ServerHttpResponse
      * @param result 响应类
      * @return
@@ -133,10 +133,5 @@ public class GatewayRequestFilter implements GlobalFilter, Ordered {
                     route.getId(), url.getScheme(), url.getAuthority(), url.getPath(), LocalDateTime.now()
             );
         }
-    }
-
-    @Override
-    public int getOrder() {
-        return OrderedConstant.LOGGING_FILTER;
     }
 }
