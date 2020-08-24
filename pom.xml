@@ -28,7 +28,7 @@
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <shiro.version>1.4.2</shiro.version>
         <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
-        <cn.afterturn.easypoi>3.2.0</cn.afterturn.easypoi>
+        <cn.afterturn.easypoi>4.1.2</cn.afterturn.easypoi>
         <com.alibaba.druid>1.1.6</com.alibaba.druid>
         <com.baomidou.mybatis>3.1.0</com.baomidou.mybatis>
         <de.codecentric.admin>2.1.6</de.codecentric.admin>

@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * 通过配置类将ServerProtectInterceptor过滤器加载到IOC容器中
  *
  * @author tianQi
- * @create 2020-08-20
+ * @Date 2020-08-20
  */
 public class ServerProtectConfigure implements WebMvcConfigurer {
 

@@ -1,11 +1,10 @@
 package top.tianqi.vitality.tools.utils;
 
-import top.tianqi.vitality.exception.InputExcelException;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
+import top.tianqi.vitality.exception.InputExcelException;
 
 import javax.validation.constraints.NotNull;
 import java.io.File;
@@ -125,8 +124,6 @@ public class InputExcelUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw e;
-		} catch (InvalidFormatException e1) {
-			e1.printStackTrace();
 		}
 
 		return returnObjectList(datePattern, filedsRow, rowList, clazz);
@@ -162,7 +159,7 @@ public class InputExcelUtil {
 	 */
 	private static String getCellValue(Cell cell) {
 		Object result = "";
-		switch (cell.getCellTypeEnum()) {
+		switch (cell.getCellType()) {
 			case STRING:
 				result = cell.getStringCellValue();
 				break;
