@@ -69,6 +69,7 @@ public class GatewaySentinelConfigure {
         Set<ApiDefinition> definitions = new HashSet<>();
         Set<ApiPredicateItem> predicateItems = new HashSet<>();
 
+        // 设置获取验证码请求路径
         predicateItems.add(new ApiPathPredicateItem().setPattern("/api/auth/captcha"));
         ApiDefinition definition = new ApiDefinition("captcha")
                 .setPredicateItems(predicateItems);

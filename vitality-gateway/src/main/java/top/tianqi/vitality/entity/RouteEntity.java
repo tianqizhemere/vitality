@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 路由实体类
+ * nacos动态路由配置，路由实体类
  * @Author wkh
  * @Date 2020/8/11 13:58
  */

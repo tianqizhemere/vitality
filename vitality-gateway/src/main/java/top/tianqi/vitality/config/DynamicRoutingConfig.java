@@ -33,6 +33,30 @@ import java.util.concurrent.Executor;
 
 /**
  * 通过Nacos动态配置Spring Cloud Gateway路由,并实现spring提供的事物推送接口
+ * <p>在nacos客户端创建一个名称为vitality-gateway.json的json类型的文件</p>
+ * <p>配置：
+ * refreshGatewayRoute属性：是否刷新路由配置
+ * </p>
+ * {
+ *     "refreshGatewayRoute":true,
+ *     "routeList":[
+ *         {
+ *             "id":"auth-route",
+ *             "predicates":[
+ *                 {
+ *                     "name":"Path",
+ *                     "args":{
+ *                         "_genkey_0":"/api/auth/**"
+ *                     }
+ *                 }
+ *             ],
+ *             "filters":[
+ *             ],
+ *             "uri":"lb://VITALITY-Auth",
+ *             "order":0
+ *         }
+ *     ]
+ * }
  *
  * @Author wkh
  * @Date 2020/8/11 14:00
@@ -52,6 +76,7 @@ public class DynamicRoutingConfig implements ApplicationEventPublisherAware {
     public void refreshRouting() throws NacosException {
         Properties properties = new Properties();
         properties.put(PropertyKeyConst.SERVER_ADDR, GatewayConfig.NACOS_SERVER_ADDR);
+        // 设置命令空间
         // properties.put(PropertyKeyConst.NAMESPACE, GatewayConfig.NACOS_NAMESPACE);
         ConfigService configService = NacosFactory.createConfigService(properties);
         // 监听并刷新路由信息
@@ -85,6 +110,7 @@ public class DynamicRoutingConfig implements ApplicationEventPublisherAware {
 
     /**
      * 路由更新
+     *
      * @param routeDefinition
      * @return
      */
@@ -106,6 +132,7 @@ public class DynamicRoutingConfig implements ApplicationEventPublisherAware {
 
     /**
      * 路由信息组装
+     *
      * @param routeEntity
      * @return
      */

@@ -4,7 +4,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 过滤器实体类
+ * nacos动态路由配置，过滤器实体类
+ *
  * @Author wkh
  * @Date 2020/8/11 13:56
  */
