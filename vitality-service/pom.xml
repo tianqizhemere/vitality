@@ -21,6 +21,7 @@
         <module>vitality-service-quartz</module>
         <module>vitality-service-queue</module>
         <module>vitality-service-config</module>
+        <module>vitality-service-webservice</module>
     </modules>
 
     <dependencies>
